@@ -1,0 +1,79 @@
+format = """
+$directory\
+[ ](fg:orange bg:dark_teal)\
+$git_branch\
+$git_status\
+[ ](fg:dark_teal)\
+\n$character
+"""
+
+right_format = """
+$cmd_duration\
+$username\
+✨
+$time
+"""
+
+# コマンドラインに1行分のスペースを入れる
+add_newline = true
+
+palette = "everforest"
+
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "user: [$user]($style) "
+disabled = false
+
+# left_promptとright_promptの間を何で埋めるか設定
+[fill]
+symbol = ' '
+
+[directory]
+style = "fg:netural bg:orange bold"
+truncation_length = 10
+truncate_to_repo = false
+truncation_symbol = "…/"
+read_only = ' 󰌾 ' # nf-md-lock
+read_only_style = 'fg:red bg:netural'
+format = '[ $path ]($style)[$read_only]($read_only_style)'
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[aws]
+disabled = true
+[gcloud]
+disabled = true
+
+[git_branch]
+symbol = ""
+format = '[[ $symbol $branch ](fg:cream bg:dark_teal)]($style)'
+
+[git_status]
+style = "bg:dark_teal"
+format = '[[($all_status$ahead_behind )](fg:cream bg:dark_teal)]($style)'
+
+[cmd_duration]
+min_time = 1
+style = 'fg:netural'
+format = "[$duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+format = '[[   $time ](fg:netural)]($style)'
+
+[character]
+format = "🐕 "
+
+[palettes.everforest]
+netural = "#232a2e"
+dark_teal = "#425047"
+cream = "#d3c6aa"
+red = "#e67e80"
+orange = "#e69875"
+green = "#a7c080"
