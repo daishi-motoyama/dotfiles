@@ -28,3 +28,11 @@
 ```
 
 `link` コマンドは、dotfiles ディレクトリから `$home` ディレクトリにシンボリックリンクを作成し、すべての設定を同じように実行できるようにします。
+
+### `docker`
+
+```bash
+./install.sh docker
+```
+
+`docker` コマンドは、Docker Composeをインストールします。
