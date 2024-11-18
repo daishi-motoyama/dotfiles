@@ -19,8 +19,18 @@ setopt hist_reduce_blanks
 # スペースで始まるコマンド行は履歴から削除
 setopt hist_ignore_space
 
-# fnm
-eval "$(fnm env --use-on-cd)"
+# ファイル名を変数に入れる
+cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}
+sheldon_cache="$cache_dir/sheldon.zsh"
+sheldon_toml="$HOME/.config/sheldon/plugins.toml"
 
-# starship
-eval "$(starship init zsh)"
+# キャッシュがない、またはキャッシュが古い場合にキャッシュを作成
+if [[ ! -r "$sheldon_cache" || "$sheldon_toml" -nt "$sheldon_cache" ]]; then
+  mkdir -p $cache_dir
+  sheldon source > $sheldon_cache
+fi
+
+source "$sheldon_cache"
+
+# 使い終わった変数を削除
+unset cache_dir sheldon_cache sheldon_toml
