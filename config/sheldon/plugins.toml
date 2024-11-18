@@ -15,10 +15,12 @@ apply = ["defer"]
 # zsh-completions
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
+apply = ["defer"]
 
 # zsh-autocomplete
 [plugins.zsh-autocomplete]
 github = "marlonrichert/zsh-autocomplete"
+apply = ["defer"]
 
 # starship
 [plugins.starship]
@@ -27,3 +29,8 @@ inline = 'eval "$(starship init zsh)"'
 # fnm
 [plugins.fnm]
 inline = 'eval "$(fnm env --use-on-cd)"'
+
+# pnpm-shell-completion
+[plugins.pnpm-shell-completion]
+github = "g-plane/pnpm-shell-completion"
+apply = ["defer"]
