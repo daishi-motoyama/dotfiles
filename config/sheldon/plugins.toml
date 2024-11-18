@@ -16,8 +16,9 @@ apply = ["defer"]
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
+# zsh-autocomplete
 [plugins.zsh-autocomplete]
-github = "zsh-autocomplete"
+github = "marlonrichert/zsh-autocomplete"
 
 # starship
 [plugins.starship]
