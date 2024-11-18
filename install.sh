@@ -147,6 +147,21 @@ setup_symlinks() {
   fi
 }
 
+DOCKER_CLI_PLUGINS_DIR=$HOME/.docker/cli-plugins
+
+install_docker_compose() {
+  # https://docs.docker.com/compose/install/linux/#install-the-plugin-manually
+  if [ -f "$DOCKER_CLI_PLUGINS_DIR/docker-compose" ]; then
+    info "Docker compose is already installed, so skip it."
+  else
+    title "Installing Docker Compose"
+    mkdir -p "$DOCKER_CLI_PLUGINS_DIR"   
+    curl -SL "https://github.com/docker/compose/releases/download/v2.30.3/docker-compose-darwin-aarch64" -o "$DOCKER_CLI_PLUGINS_DIR/docker-compose"
+    chmod +x "$DOCKER_CLI_PLUGINS_DIR/docker-compose"
+    info "Installed docker compose"
+  fi
+}
+
 case "$1" in
 backup)
   backup
@@ -156,6 +171,9 @@ clean)
   ;;
 link)
   setup_symlinks
+  ;;
+docker)
+  install_docker_compose
   ;;
 all)
   setup_symlinks

@@ -1,26 +1,27 @@
 shell = "zsh"
 
+# デフォルトを遅延読み込みにする
+apply = ["defer"]
+
 [templates]
 defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
 
 # zsh-defer
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
+apply = ["source"]
 
 # zsh-syntax-highlighting
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
-apply = ["defer"]
 
 # zsh-completions
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
-apply = ["defer"]
 
 # zsh-autocomplete
 [plugins.zsh-autocomplete]
 github = "marlonrichert/zsh-autocomplete"
-apply = ["defer"]
 
 # starship
 [plugins.starship]
@@ -34,3 +35,7 @@ inline = 'eval "$(fnm env --use-on-cd)"'
 [plugins.pnpm-shell-completion]
 github = "g-plane/pnpm-shell-completion"
 apply = ["defer"]
+
+# colima
+[plugins.colima]
+inline='if [[ $(colima status 2>&1) == *"is not running"* ]]; then echo "Colima is not running. Starting Colima..."; colima start; fi'
