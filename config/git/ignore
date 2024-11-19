@@ -1,15 +1,15 @@
-#	OS created files
+# OS created files
 .DS_Store
 thums.db
 
-#	backup
+# backup
 $~*
 ~*
 *~
 *tmp
 *swp
 
-#	credential files
+# credential files
 **/.ssh/
 **/.gnupg/*
 **/.dbus-keyrings/
