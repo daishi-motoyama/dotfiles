@@ -1,0 +1,16 @@
+#	OS created files
+.DS_Store
+thums.db
+
+#	backup
+$~*
+~*
+*~
+*tmp
+*swp
+
+#	credential files
+**/.ssh/
+**/.gnupg/*
+**/.dbus-keyrings/
+*credential*

@@ -177,6 +177,7 @@ docker)
   ;;
 all)
   setup_symlinks
+  docker
   ;;
 *)
   echo -e $"\nUsage: $(basename "$0") {backup|link|git|homebrew|shell|terminfo|macos|all}\n"
