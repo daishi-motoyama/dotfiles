@@ -13,12 +13,11 @@
   llg = log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit
   aliases = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
 [core]
-  pager = delta
+  pager = delta --side-by-side
 [interactive]
   diffFilter = delta --show-syntax-themes --light --color-only
 [delta]
   navigate = true
-  side-by-side = true
   line-numbers = true
   hyperlinks = true
   true-color = always
