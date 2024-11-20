@@ -1,0 +1,6 @@
+gui:
+  language: "ja"
+git:
+  paging:
+    colorArg: always
+    pager: delta --light --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
