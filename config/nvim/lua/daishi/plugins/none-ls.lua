@@ -24,19 +24,8 @@ return {
 				builtins.diagnostics.markdownlint_cli2,
 				builtins.formatting.prettier.with({
 					prefer_local = "node_modules/.bin",
-					condition = function(utils)
-						return utils.root_has_file({
-							".prettierrc",
-							".prettierrc.js",
-							"prettierrc.mjs",
-							"prettierrc.cjs",
-						})
-					end,
 				}),
 				builtins.formatting.biome.with({
-					condition = function(utils)
-						return utils.root_has_file({ "biome.json" })
-					end,
 					prefer_local = "node_modules/.bin",
 				}),
 				builtins.formatting.stylua,
@@ -62,7 +51,12 @@ return {
 						group = augroup,
 						buffer = bufnr,
 						callback = function()
-							vim.lsp.buf.format({ async = false })
+							vim.lsp.buf.format({
+								async = false,
+								filter = function(c)
+									return c.name == "null-ls"
+								end,
+							})
 						end,
 					})
 				end

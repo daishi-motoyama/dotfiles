@@ -38,7 +38,9 @@
 `docker` コマンドは、Docker Composeをインストールします。
 
 ## Git
+
 `dotfiles/config/git`直下に、`.gitconfig.local`を作成して、そちらにユーザー情報等を定義してください。
+
 ```text
 [user]
 email = example@example.com
