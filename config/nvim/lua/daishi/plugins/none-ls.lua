@@ -27,6 +27,9 @@ return {
 				}),
 				builtins.formatting.biome.with({
 					prefer_local = "node_modules/.bin",
+					condition = function(utils)
+						return utils.root_has_file({ "biome.json" })
+					end,
 				}),
 				builtins.formatting.stylua,
 				builtins.completion.spell,
