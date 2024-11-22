@@ -1,0 +1,7 @@
+gui:
+  theme:
+    activeBorderColor:
+      - black
+      - bold
+    selectedLineBgColor:
+      - cyan
