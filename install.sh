@@ -176,8 +176,8 @@ docker)
   install_docker_compose
   ;;
 all)
-  setup_symlinks
   docker
+  setup_symlinks
   ;;
 *)
   echo -e $"\nUsage: $(basename "$0") {backup|link|git|homebrew|shell|terminfo|macos|all}\n"
