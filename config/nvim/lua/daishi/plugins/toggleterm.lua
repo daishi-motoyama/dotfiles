@@ -1,42 +1,47 @@
 return {
-	"akinsho/toggleterm.nvim",
-	version = "*",
-	config = function()
-		local toggleterm = require("toggleterm")
-		local Terminal = require("toggleterm.terminal").Terminal
-		toggleterm.setup({
-			size = function(term)
-				if term.direction == "horizontal" then
-					return 20
-				elseif term.direction == "vertical" then
-					return vim.o.columns * 0.4
-				end
-			end,
-			-- c-\ を押せば Terminal を toggle する
-			-- 2 c-\ を押せば 2 番目の terminal を開ける（番号を指定できる）
-			open_mapping = [[<C-\>]],
-			hide_numbers = true,
-			direction = "float",
-		})
+  "akinsho/toggleterm.nvim",
+  version = "*",
+  config = function()
+    local toggleterm = require("toggleterm")
+    local Terminal = require("toggleterm.terminal").Terminal
 
-		function _G.set_terminal_keymaps()
-			local opts = { noremap = true }
-			vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
-			vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
-		end
+    toggleterm.setup({
+      size = function(term)
+        if term.direction == "horizontal" then
+          return 20
+        elseif term.direction == "vertical" then
+          return vim.o.columns * 0.4
+        end
+      end,
+      hide_numbers = true,
+      direction = "float",
+      open_mapping = [[<c-\>]],
+    })
 
-		local lazygit = Terminal:new({
-			cmd = "lazygit",
-			direction = "float",
-			hidden = true,
-		})
+    function _G.set_terminal_keymaps()
+      local opts = { buffer = 0 }
+      vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+      vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+      vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+      vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+      vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+      vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+      vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+    end
 
-		vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+    -- if you only want these mappings for toggle term use term://*toggleterm#* instead
+    vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
-		function _lazygit_toggle()
-			lazygit:toggle()
-		end
+    local lazygit = Terminal:new({
+      cmd = "lazygit",
+      direction = "float",
+      hidden = true,
+    })
 
-		vim.api.nvim_set_keymap("n", "<leader>gL", "<cmd>lua _lazygit_toggle()<CR>", { desc = "Open LazyGit" })
-	end,
+    function _lazygit_toggle()
+      lazygit:toggle()
+    end
+
+    vim.api.nvim_set_keymap("n", "<leader>gL", "<cmd>lua _lazygit_toggle()<CR>", { desc = "Open LazyGit" })
+  end,
 }
