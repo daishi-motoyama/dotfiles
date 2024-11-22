@@ -25,7 +25,7 @@ return {
     })
 
     require("notify").setup({
-      render = "wrapped-default",
+      render = "wrapped-compact",
       background_colour = "NotifyBackground",
       fps = 30,
       icons = {
