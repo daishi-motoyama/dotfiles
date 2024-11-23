@@ -23,15 +23,18 @@ github = "zsh-users/zsh-completions"
 [plugins.zsh-autocomplete]
 github = "marlonrichert/zsh-autocomplete"
 
-# starship
-[plugins.starship]
-inline = 'eval "$(starship init zsh)"'
-
-# fnm
-[plugins.fnm]
-inline = 'eval "$(fnm env --use-on-cd)"'
-
 # pnpm-shell-completion
 [plugins.pnpm-shell-completion]
 github = "g-plane/pnpm-shell-completion"
 apply = ["defer"]
+
+# zsh配下のファイルは遅延読み込みにする
+[plugins.local-defer]
+local = "~/.config/zsh"
+use = ["{!sync,*}.zsh"]
+
+# zsh/sync配下のファイルは同期読み込みにする
+[plugins.local-sync]
+local = "~/.config/zsh"
+use = ["sync/*.zsh"]
+apply = ["source"]
