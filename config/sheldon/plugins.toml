@@ -26,7 +26,10 @@ github = "marlonrichert/zsh-autocomplete"
 # pnpm-shell-completion
 [plugins.pnpm-shell-completion]
 github = "g-plane/pnpm-shell-completion"
-apply = ["defer"]
+
+# zsh-abbr
+[plugins.zsh-abbr]
+github = "olets/zsh-abbr"
 
 # zsh配下のファイルは遅延読み込みにする
 [plugins.local-defer]
