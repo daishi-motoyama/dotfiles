@@ -11,6 +11,7 @@ return {
         "~/Downloads",
         "~/Documents",
         "~/Desktop/",
+        "~/Projects/",
       },
     })
 
