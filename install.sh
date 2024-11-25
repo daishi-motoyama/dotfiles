@@ -162,22 +162,22 @@ setup_homebrew() {
   if test ! "$(command -v brew)"; then
     info "Homebrew not installed. Installing."
     # Run as a login shell (non-interactive) so that the script doesn't pause for user input
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
   # install brew dependencies from Brewfile
   brew bundle --file="~/.config/homebrew/Brewfile"
-
+  
   info "Homebrew setup complete"
 }
 
 replace_zsh() {
   # Check if zsh is installed with brew
-  if ! brew list zsh &>/dev/null; then
+  if brew list --formula | grep -q "^zsh\$"; then
+    info "zsh is already installed"
+  else
     info "Since zsh is not installed, start installing it..."
     brew install zsh
-  else
-    info "zsh is already installed"
   fi
 
   # Get the path of the installed zsh
@@ -189,7 +189,7 @@ replace_zsh() {
   fi
 
   # Change the default shell to the installed zsh
-  chsh -s "$ZSH_PATH"
+  sudo chsh -s "$ZSH_PATH"
 
   # Message prompting you to apply the settings
   info "I set zsh installed with brew as the default shell. Please restart your terminal"
