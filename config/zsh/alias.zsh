@@ -26,3 +26,9 @@ abbr -g cst="colima status"
 abbr -g csr="colima start"
 abbr -g csp="colima stop"
 
+# lazygit
+abbr -g Lg="lazygit"
+
+# lazydocker
+abbr -g Ld="lazydocker"
+
