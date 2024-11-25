@@ -171,6 +171,30 @@ setup_homebrew() {
   info "Homebrew setup complete"
 }
 
+replace_zsh() {
+  # Check if zsh is installed with brew
+  if ! brew list zsh &>/dev/null; then
+    info "Since zsh is not installed, start installing it..."
+    brew install zsh
+  else
+    info "zsh is already installed"
+  fi
+
+  # Get the path of the installed zsh
+  ZSH_PATH=$(brew --prefix)/bin/zsh
+
+  # Check if the installed zsh is allowed as a shell and add
+  if ! grep -Fxq "$ZSH_PATH" /etc/shells; then
+    echo "$ZSH_PATH" | sudo tee -a /etc/shells
+  fi
+
+  # Change the default shell to the installed zsh
+  chsh -s "$ZSH_PATH"
+
+  # Message prompting you to apply the settings
+  info "I set zsh installed with brew as the default shell. Please restart your terminal"
+}
+
 case "$1" in
 backup)
   backup
@@ -190,6 +214,7 @@ homebrew)
 all)
   setup_symlinks
   setup_homebrew
+  replace_zsh
   setup_docker_compose
   ;;
 *)
