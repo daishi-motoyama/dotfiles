@@ -45,6 +45,8 @@ return {
             return utils.root_has_file(eslint_file)
           end,
         }),
+        builtins.formatting.beautysh,
+        builtins.diagnostics.zsh,
       },
       diagnostics_format = "#{m} (#{s}: #{c})",
       on_attach = function(client, bufnr)

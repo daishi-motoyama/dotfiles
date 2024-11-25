@@ -165,6 +165,11 @@ return {
           capabilities = capabilities,
         })
       end,
+      ["bashls"] = function()
+        lspconfig["bashls"].setup({
+          capabilities = capabilities,
+        })
+      end,
     })
   end,
 }

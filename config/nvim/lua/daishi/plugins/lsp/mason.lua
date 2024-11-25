@@ -34,6 +34,7 @@ return {
         "biome",
         "marksman",
         "yamlls",
+        "bashls",
       },
     })
 
@@ -48,6 +49,7 @@ return {
         "biome",
         "markdownlint-cli2",
         "markdown-toc",
+        "beautysh",
       },
     })
   end,
