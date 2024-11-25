@@ -12,12 +12,6 @@ COLOR_PURPLE="\033[1;35m"
 COLOR_YELLOW="\033[1;33m"
 COLOR_NONE="\033[0m"
 
-linkables=(
-  # "zsh/.zshrc"
-  # "zsh/.zshenv"
-  # "zsh/.zprofile"
-)
-
 # Configuration home
 config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
 data_home="${XDG_DATA_HOME:-$HOME/.local/share}"
@@ -149,7 +143,7 @@ setup_symlinks() {
 
 DOCKER_CLI_PLUGINS_DIR=$HOME/.docker/cli-plugins
 
-install_docker_compose() {
+setup_docker_compose() {
   # https://docs.docker.com/compose/install/linux/#install-the-plugin-manually
   if [ -f "$DOCKER_CLI_PLUGINS_DIR/docker-compose" ]; then
     info "Docker compose is already installed, so skip it."
@@ -160,6 +154,21 @@ install_docker_compose() {
     chmod +x "$DOCKER_CLI_PLUGINS_DIR/docker-compose"
     info "Installed docker compose"
   fi
+}
+
+setup_homebrew() {
+  title "Setting up Homebrew"
+
+  if test ! "$(command -v brew)"; then
+    info "Homebrew not installed. Installing."
+    # Run as a login shell (non-interactive) so that the script doesn't pause for user input
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+
+  # install brew dependencies from Brewfile
+  brew bundle --file="~/.config/homebrew/Brewfile"
+
+  info "Homebrew setup complete"
 }
 
 case "$1" in
@@ -173,11 +182,15 @@ link)
   setup_symlinks
   ;;
 docker)
-  install_docker_compose
+  setup_docker_compose
+  ;;
+homebrew)
+  setup_homebrew
   ;;
 all)
-  docker
   setup_symlinks
+  setup_homebrew
+  setup_docker_compose
   ;;
 *)
   echo -e $"\nUsage: $(basename "$0") {backup|link|git|homebrew|shell|terminfo|macos|all}\n"

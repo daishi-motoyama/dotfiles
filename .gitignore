@@ -3,3 +3,5 @@ config/zsh/.zsh_history
 config/zsh/.zcompdump
 config/zsh/.zsh_sessions
 config/git/.gitconfig.local
+Brewfile.lock.json
+lazy-lock.json
