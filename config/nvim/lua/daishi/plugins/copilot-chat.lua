@@ -23,37 +23,37 @@ return {
         prompts = {
           Explain = {
             prompt = "/COPILOT_EXPLAIN コードを日本語で説明してください",
-            mapping = "<leader>Ce",
+            mapping = "<leader>ce",
             description = "explain the code",
           },
           Review = {
             prompt = "/COPILOT_REVIEW コードを日本語でレビューしてください。",
-            mapping = "<leader>Cr",
+            mapping = "<leader>cr",
             description = "review the code",
           },
           Fix = {
             prompt = "/COPILOT_FIX このコードには問題があります。バグを修正したコードを表示してください。説明は日本語でお願いします。",
-            mapping = "<leader>Cf",
+            mapping = "<leader>cf",
             description = "fix the code",
           },
           Optimize = {
             prompt = "/COPILOT_REFACTOR 選択したコードを最適化し、パフォーマンスと可読性を向上させてください。説明は日本語でお願いします。",
-            mapping = "<leader>Co",
+            mapping = "<leader>co",
             description = "optimize the code",
           },
           Docs = {
             prompt = "/COPILOT_GENERATE 選択したコードに関するドキュメントコメントを日本語で生成してください。",
-            mapping = "<leader>Cd",
+            mapping = "<leader>cd",
             description = "create code documentation",
           },
           Tests = {
             prompt = "/COPILOT_TESTS 選択したコードの詳細なユニットテストを書いてください。説明は日本語でお願いします。",
-            mapping = "<leader>Ct",
+            mapping = "<leader>ct",
             description = "create test code",
           },
           FixDiagnostic = {
             prompt = "コードの診断結果に従って問題を修正してください。修正内容の説明は日本語でお願いします。",
-            mapping = "<leader>Cd",
+            mapping = "<leader>cd",
             description = "Fix the issue according to the code diagnostic results",
             selection = copilot_chat_select.diagnostics,
           },
@@ -113,7 +113,7 @@ return {
               🌱 seed: Adding or updating seeds
               💡 idea: Adding comments/documenting ideas
             ]],
-            mapping = "<leader>Cc",
+            mapping = "<leader>cc",
             description = "Commit the staged changes",
           },
         },
@@ -128,8 +128,8 @@ return {
 
       local keymap = vim.keymap
 
-      keymap.set("n", "<leader>Cm", "<cmd>CopilotChatModels<CR>", { desc = "Select model" })
-      keymap.set("n", "<leader>Cq", "<cmd>lua chat_buffer()<CR>", { desc = "Quick chat" })
+      keymap.set("n", "<leader>cm", "<cmd>CopilotChatModels<CR>", { desc = "Select model" })
+      keymap.set("n", "<leader>cq", "<cmd>lua chat_buffer()<CR>", { desc = "Quick chat" })
     end,
   },
 }

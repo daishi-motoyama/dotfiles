@@ -52,11 +52,6 @@ return {
         group = "Window",
       },
       {
-        "<leader>c",
-        group = "Comment",
-        icon = "#",
-      },
-      {
         "<leader>T",
         group = "Tab",
       },
@@ -89,7 +84,7 @@ return {
         group = "Buffer",
       },
       {
-        "<leader>C",
+        "<leader>c",
         group = "Copilot",
         icon = "",
       },
