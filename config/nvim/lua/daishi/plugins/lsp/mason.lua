@@ -49,7 +49,8 @@ return {
         "biome",
         "markdownlint-cli2",
         "markdown-toc",
-        "beautysh",
+        "shfmt",
+        "shellcheck",
       },
     })
   end,

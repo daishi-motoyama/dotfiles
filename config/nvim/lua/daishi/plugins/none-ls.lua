@@ -1,6 +1,6 @@
 return {
   "nvimtools/none-ls.nvim",
-  dependencies = { "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim" },
+  dependencies = { "gbprod/none-ls-shellcheck.nvim", "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim" },
   config = function()
     local null_ls = require("null-ls")
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -45,8 +45,12 @@ return {
             return utils.root_has_file(eslint_file)
           end,
         }),
-        builtins.formatting.beautysh,
-        builtins.diagnostics.zsh,
+        builtins.formatting.shfmt.with({
+          filetypes = { "sh", "zsh" },
+          extra_args = { "-i", "2", "-ci" },
+        }),
+        require("none-ls-shellcheck.diagnostics"),
+        require("none-ls-shellcheck.code_actions"),
       },
       diagnostics_format = "#{m} (#{s}: #{c})",
       on_attach = function(client, bufnr)
