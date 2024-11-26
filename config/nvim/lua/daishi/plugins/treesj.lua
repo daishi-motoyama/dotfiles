@@ -9,6 +9,7 @@ return {
       use_default_keymaps = false,
     })
 
-    keymap.set("n", "<leader>m", require("treesj").toggle)
+    keymap.set("n", "gm", "", { desc = "Treesj" })
+    keymap.set("n", "gmm", treesj.toggle, { desc = "Toggle split/join" })
   end,
 }
