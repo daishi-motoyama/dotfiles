@@ -30,7 +30,7 @@ return {
       },
       -- Replace
       -- Replace to Japanese
-      { "<leader>trj", ":'<,'>TranslateR<CR>",                  mode = "v", desc = "Replace to Japanese" },
+      { "<leader>trj", ":'<,'>TranslateR<CR>", mode = "v", desc = "Replace to Japanese" },
       {
         "<leader>trj",
         function()
