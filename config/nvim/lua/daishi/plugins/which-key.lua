@@ -72,7 +72,13 @@ return {
       },
       {
         "<leader>g",
-        group = "Git",
+        group = "LazyGit",
+        icon = "",
+      },
+      {
+        "<leader>h",
+        group = "Gitsigns",
+        icon = "",
       },
       {
         "<leader>n",
