@@ -52,71 +52,71 @@ return {
     -- キーバインド設定ファイルを開く
     {
       key = ",",
-      mods = "LEADER",
+      mods = "SUPER",
       action = wezterm.action.SpawnCommandInNewTab({
         args = { "/opt/homebrew/bin/nvim", wezterm.config_dir .. "/keybind.lua" },
       }),
     },
     -- コマンドパレット表示
-    { key = "p",     mods = "SUPER",  action = act.ActivateCommandPalette },
+    { key = "p", mods = "SUPER", action = act.ActivateCommandPalette },
     -- Tab移動
-    { key = "l",     mods = "SUPER",  action = act.ActivateTabRelative(1) },
-    { key = "h",     mods = "SUPER",  action = act.ActivateTabRelative(-1) },
+    { key = "l", mods = "SUPER", action = act.ActivateTabRelative(1) },
+    { key = "h", mods = "SUPER", action = act.ActivateTabRelative(-1) },
     -- Tab入れ替え
     -- { key = "{",     mods = "LEADER",     action = act({ MoveTabRelative = -1 }) },
     -- Tab新規作成
-    { key = "t",     mods = "SUPER",  action = act({ SpawnTab = "CurrentPaneDomain" }) },
+    { key = "t", mods = "SUPER", action = act({ SpawnTab = "CurrentPaneDomain" }) },
     -- Tabを閉じる
-    { key = "w",     mods = "SUPER",  action = act({ CloseCurrentTab = { confirm = true } }) },
+    { key = "w", mods = "SUPER", action = act({ CloseCurrentTab = { confirm = true } }) },
     -- { key = "}",     mods = "LEADER",     action = act({ MoveTabRelative = 1 }) },
 
     -- 画面フルスクリーン切り替え
-    { key = "Enter", mods = "SUPER",  action = act.ToggleFullScreen },
+    { key = "Enter", mods = "SUPER", action = act.ToggleFullScreen },
 
     -- コピーモード
     -- { key = 'X', mods = 'LEADER', action = act.ActivateKeyTable{ name = 'copy_mode', one_shot =false }, },
-    { key = "c",     mods = "LEADER", action = act.ActivateCopyMode },
+    { key = "c", mods = "LEADER", action = act.ActivateCopyMode },
     -- コピー
-    { key = "c",     mods = "SUPER",  action = act.CopyTo("Clipboard") },
+    { key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
     -- 貼り付け
-    { key = "v",     mods = "SUPER",  action = act.PasteFrom("Clipboard") },
+    { key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
 
     -- Pane作成 leader + r or d
-    { key = "d",     mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-    { key = "r",     mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+    { key = "d", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+    { key = "r", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
     -- Paneを閉じる leader + x
-    { key = "x",     mods = "LEADER", action = act({ CloseCurrentPane = { confirm = true } }) },
+    { key = "x", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = true } }) },
     -- Pane移動 leader + hlkj
-    { key = "h",     mods = "LEADER", action = act.ActivatePaneDirection("Left") },
-    { key = "l",     mods = "LEADER", action = act.ActivatePaneDirection("Right") },
-    { key = "k",     mods = "LEADER", action = act.ActivatePaneDirection("Up") },
-    { key = "j",     mods = "LEADER", action = act.ActivatePaneDirection("Down") },
+    { key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
+    { key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
+    { key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
+    { key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
     -- Pane選択
     -- { key = "[", mods = "CTRL|SHIFT", action = act.PaneSelect },
     -- 選択中のPaneのみ表示
-    { key = "z",     mods = "LEADER", action = act.TogglePaneZoomState },
+    { key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
 
     -- フォントサイズ切替
-    { key = "+",     mods = "SUPER",  action = act.IncreaseFontSize },
-    { key = "-",     mods = "SUPER",  action = act.DecreaseFontSize },
+    { key = "+", mods = "SUPER", action = act.IncreaseFontSize },
+    { key = "-", mods = "SUPER", action = act.DecreaseFontSize },
     -- フォントサイズのリセット
-    { key = "0",     mods = "SUPER",  action = act.ResetFontSize },
+    { key = "0", mods = "SUPER", action = act.ResetFontSize },
 
     -- タブ切替 Cmd + 数字
-    { key = "1",     mods = "SUPER",  action = act.ActivateTab(0) },
-    { key = "2",     mods = "SUPER",  action = act.ActivateTab(1) },
-    { key = "3",     mods = "SUPER",  action = act.ActivateTab(2) },
-    { key = "4",     mods = "SUPER",  action = act.ActivateTab(3) },
-    { key = "5",     mods = "SUPER",  action = act.ActivateTab(4) },
-    { key = "6",     mods = "SUPER",  action = act.ActivateTab(5) },
-    { key = "7",     mods = "SUPER",  action = act.ActivateTab(6) },
-    { key = "8",     mods = "SUPER",  action = act.ActivateTab(7) },
-    { key = "9",     mods = "SUPER",  action = act.ActivateTab(-1) },
+    { key = "1", mods = "SUPER", action = act.ActivateTab(0) },
+    { key = "2", mods = "SUPER", action = act.ActivateTab(1) },
+    { key = "3", mods = "SUPER", action = act.ActivateTab(2) },
+    { key = "4", mods = "SUPER", action = act.ActivateTab(3) },
+    { key = "5", mods = "SUPER", action = act.ActivateTab(4) },
+    { key = "6", mods = "SUPER", action = act.ActivateTab(5) },
+    { key = "7", mods = "SUPER", action = act.ActivateTab(6) },
+    { key = "8", mods = "SUPER", action = act.ActivateTab(7) },
+    { key = "9", mods = "SUPER", action = act.ActivateTab(-1) },
 
     -- コマンドパレット
     -- { key = "p", mods = "SHIFT|CTRL", action = act.ActivateCommandPalette },
     -- 設定再読み込み
-    { key = "r",     mods = "SUPER",  action = act.ReloadConfiguration },
+    { key = "r", mods = "SUPER", action = act.ReloadConfiguration },
 
     -- キーテーブル用
     {
@@ -136,10 +136,10 @@ return {
   key_tables = {
     -- Paneサイズ調整 leader + s
     resize_pane = {
-      { key = "h",     action = act.AdjustPaneSize({ "Left", 1 }) },
-      { key = "l",     action = act.AdjustPaneSize({ "Right", 1 }) },
-      { key = "k",     action = act.AdjustPaneSize({ "Up", 1 }) },
-      { key = "j",     action = act.AdjustPaneSize({ "Down", 1 }) },
+      { key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
+      { key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+      { key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+      { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
 
       -- Cancel the mode by pressing escape
       { key = "Enter", action = "PopKeyTable" },
