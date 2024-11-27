@@ -48,7 +48,7 @@ return {
           },
           Tests = {
             prompt = "/COPILOT_TESTS 選択したコードの詳細なユニットテストを書いてください。説明は日本語でお願いします。",
-            mapping = "<leader>ct",
+            mapping = "<leader>cT",
             description = "create test code",
           },
           FixDiagnostic = {
@@ -130,6 +130,7 @@ return {
 
       keymap.set("n", "<leader>cm", "<cmd>CopilotChatModels<CR>", { desc = "Select model" })
       keymap.set("n", "<leader>cq", "<cmd>lua chat_buffer()<CR>", { desc = "Quick chat" })
+      keymap.set("n", "<leader>ct", "<cmd>CopilotChatToggle<CR>", { desc = "Toggle chat" })
     end,
   },
 }
