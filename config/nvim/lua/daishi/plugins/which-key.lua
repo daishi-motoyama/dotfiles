@@ -76,9 +76,14 @@ return {
         icon = "",
       },
       {
-        "<leader>h",
+        "<leader>H",
         group = "Gitsigns",
         icon = "",
+      },
+      {
+        "<leader>h",
+        group = "Hop",
+        icon = "🚀",
       },
       {
         "<leader>n",
