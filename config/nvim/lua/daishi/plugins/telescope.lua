@@ -110,5 +110,6 @@ return {
     keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Find keymaps" })
     keymap.set("n", "<leader>fs", "<cmd>Telescope search_history<cr>", { desc = "Find search history" })
     keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", { desc = "Open file browser" })
+    keymap.set("n", "<leader>fR", ":Telescope registers<CR>", { desc = "Find registersOpen file browser" })
   end,
 }
