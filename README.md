@@ -1,6 +1,6 @@
 # Dotfiles
 
-![neovim-preview](https://github.com/user-attachments/assets/2fb9040f-b4c4-42fe-83be-cca391371702)
+![neovim-preview](https://github.com/user-attachments/assets/c70fd9a2-42de-4177-b660-7c74ce3eea4b)
 
 ## Setup
 
