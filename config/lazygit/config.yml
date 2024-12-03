@@ -157,6 +157,6 @@ customCommands:
         initialValue: ""
       - type: "confirm"
         title: "Commit"
-        body: "Commit with the message '{{.Form.Emoji}} {{.Form.Message}}'. Is this okay?"
+        body: "Commit with the message '{{.Form.Emoji}}{{.Form.Message}}'. Is this okay?"
     command: 'bash -c ''message="{{.Form.Message}}"; emoji="{{.Form.Emoji}}"; commit_message="$emoji $message"; git commit -m "$commit_message"'''
     loadingText: "Commiting..."
