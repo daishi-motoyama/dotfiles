@@ -1,7 +1,8 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.color_scheme = "Everforest Light Soft (Gogh)"
+config.color_scheme = "Github Light (Gogh)"
+-- config.color_scheme = "Everforest Light Soft (Gogh)"
 config.font = wezterm.font("Hack Nerd Font")
 config.automatically_reload_config = true
 config.font_size = 14.0
@@ -29,7 +30,10 @@ config.window_frame = {
 
 -- タブバーを背景色に合わせる
 config.window_background_gradient = {
-  colors = { "#F3EAD3" },
+  -- NOTE: github-light
+  colors = { "#f6f8fa" },
+  -- NOTE: everforest
+  -- colors = { "#F3EAD3" },
 }
 
 -- タブの追加ボタンを非表示
