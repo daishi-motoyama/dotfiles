@@ -37,6 +37,14 @@
 
 `docker` コマンドは、Docker Composeをインストールします。
 
+### `homebrew`
+
+```bash
+./install.sh homebrew
+```
+
+`homebrew` コマンドは、Homebrew本体とライブラリのインストールを行います。
+
 ## Git
 
 `dotfiles/config/git`直下に、`.gitconfig.local`を作成して、そちらにユーザー情報等を定義してください。
