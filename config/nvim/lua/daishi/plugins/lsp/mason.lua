@@ -51,6 +51,7 @@ return {
         "markdown-toc",
         "shfmt",
         "shellcheck",
+        "jq",
       },
     })
   end,
