@@ -29,6 +29,7 @@ return {
     local icon = require("which-key.icons")
 
     wk.add({
+      { "<leader>r", group = "Rest", icon = "󱂛" },
       {
         "<leader>o",
         group = "Octo",

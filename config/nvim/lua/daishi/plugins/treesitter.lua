@@ -67,6 +67,7 @@ return {
         "query",
         "vimdoc",
         "c",
+        "http",
       },
       incremental_selection = {
         enable = true,
