@@ -14,3 +14,6 @@ $~*
 **/.gnupg/*
 **/.dbus-keyrings/
 *credential*
+
+# http
+*.http
