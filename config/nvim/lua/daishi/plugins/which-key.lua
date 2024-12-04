@@ -30,6 +30,11 @@ return {
 
     wk.add({
       {
+        "<leader>o",
+        group = "Octo",
+        icon = "🐙",
+      },
+      {
         "<leader>e",
         group = "Tree",
         icon = "🌲",
