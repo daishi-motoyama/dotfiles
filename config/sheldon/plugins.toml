@@ -1,43 +1,44 @@
 shell = "zsh"
 
-# デフォルトを遅延読み込みにする
-apply = ["defer"]
-
 [templates]
 defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
 
 # zsh-defer
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
-apply = ["source"]
 
 # zsh-syntax-highlighting
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
+apply=["defer"]
 
 # zsh-completions
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
+apply=["defer"]
 
 # zsh-autocomplete
 [plugins.zsh-autocomplete]
 github = "marlonrichert/zsh-autocomplete"
+apply=["defer"]
 
 # pnpm-shell-completion
 [plugins.pnpm-shell-completion]
 github = "g-plane/pnpm-shell-completion"
+apply=["defer"]
 
 # zsh-abbr
 [plugins.zsh-abbr]
 github = "olets/zsh-abbr"
+apply=["defer"]
 
 # zsh配下のファイルは遅延読み込みにする
 [plugins.local-defer]
 local = "~/.config/zsh"
 use = ["{!sync,*}.zsh"]
+apply=["defer"]
 
 # zsh/sync配下のファイルは同期読み込みにする
 [plugins.local-sync]
-local = "~/.config/zsh"
-use = ["sync/*.zsh"]
-apply = ["source"]
+local = "~/.config/zsh/sync"
+use = ["*.zsh"]
