@@ -17,3 +17,6 @@ $~*
 
 # http
 *.http
+
+# log
+*.log
