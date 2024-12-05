@@ -20,3 +20,9 @@ setopt hist_reduce_blanks
 
 # スペースで始まるコマンド行は履歴から削除
 setopt hist_ignore_space
+
+# ビープ音を無効にする
+setopt no_beep
+
+# 補完候補表示時にビープ音を鳴らさない
+setopt nolistbeep
