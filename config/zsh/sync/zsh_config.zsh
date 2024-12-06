@@ -26,3 +26,9 @@ setopt no_beep
 
 # 補完候補表示時にビープ音を鳴らさない
 setopt nolistbeep
+
+precmd() {
+  print -Pn "\e]0;%~\a"
+}
+
+precmd

@@ -55,17 +55,6 @@ local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_lower_right_triangle
 -- タブの右側の装飾
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_upper_left_triangle
 
-local function tab_title(tab_info)
-  local title = tab_info.tab_title
-  -- if the tab title is explicitly set, take that
-  if title and #title > 0 then
-    return title
-  end
-  -- Otherwise, use the title from the active pane
-  -- in that tab
-  return tab_info.active_pane.title
-end
-
 -- フルスクリーンで起動
 local mux = wezterm.mux
 wezterm.on("gui-startup", function(cmd)
@@ -82,14 +71,42 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     foreground = "#DFDDC8"
   end
   local edge_foreground = background
-  local title = "   " .. wezterm.truncate_right(tab_title(tab), max_width - 1) .. "   "
+
+  local title = tab.active_pane.title
+
+  local function get_last_n_chars(str, n)
+    if #str <= n then
+      return str
+    else
+      return "…" .. string.sub(str, -n + 1)
+    end
+  end
+
+  local function get_process_name(pane)
+    local process_name = pane.foreground_process_name
+
+    return process_name:match("([^/]+)$") or ""
+  end
+
+  local function get_custom_title(pane)
+    local process_name = get_process_name(pane)
+
+    if process_name ~= "zsh" then
+      return process_name
+    else
+      return get_last_n_chars(title, 23)
+    end
+  end
+
+  local custom_title = get_custom_title(tab.active_pane)
+
   return {
     { Background = { Color = edge_background } },
     { Foreground = { Color = edge_foreground } },
     { Text = SOLID_LEFT_ARROW },
     { Background = { Color = background } },
     { Foreground = { Color = foreground } },
-    { Text = title },
+    { Text = " " .. custom_title .. " " },
     { Background = { Color = edge_background } },
     { Foreground = { Color = edge_foreground } },
     { Text = SOLID_RIGHT_ARROW },
