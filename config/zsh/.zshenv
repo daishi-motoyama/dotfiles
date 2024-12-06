@@ -23,3 +23,10 @@ export GIT_EDITOR="${EDITOR}"
 
 # starshipの設定ファイルパス
 export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
+
+NAVI_DIR="${XDG_CONFIG_HOME}/navi"
+
+# navimの設定ファイルパス
+export NAVI_CONFIG="${NAVI_DIR}/config.yaml"
+
+export NAVI_PATH="${NAVI_DIR}/cheats:.cheats"
