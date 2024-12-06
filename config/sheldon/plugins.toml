@@ -35,13 +35,14 @@ apply=["defer"]
 github = "olets/zsh-abbr"
 apply=["defer"]
 
+# zsh/sync配下のファイルは同期読み込みにする
+[plugins.local-sync]
+local = "~/.config/zsh/sync"
+use = ["*.zsh"]
+
 # zsh配下のファイルは遅延読み込みにする
 [plugins.local-defer]
 local = "~/.config/zsh"
 use = ["*.zsh"]
 apply=["defer"]
 
-# zsh/sync配下のファイルは同期読み込みにする
-[plugins.local-sync]
-local = "~/.config/zsh/sync"
-use = ["*.zsh"]
