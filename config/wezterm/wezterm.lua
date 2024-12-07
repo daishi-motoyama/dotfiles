@@ -90,12 +90,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
   local function get_custom_title(pane)
     local process_name = get_process_name(pane)
-
-    if process_name ~= "zsh" then
-      return process_name
-    else
-      return get_last_n_chars(title, 23)
-    end
+    return get_last_n_chars(title, 23)
   end
 
   local custom_title = get_custom_title(tab.active_pane)
