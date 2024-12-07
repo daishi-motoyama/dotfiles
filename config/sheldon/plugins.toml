@@ -15,11 +15,6 @@ inline = "autoload -Uz compinit && zsh-defer compinit"
 github = "zsh-users/zsh-syntax-highlighting"
 apply=["defer"]
 
-# zsh-completions
-[plugins.zsh-completions]
-github = "zsh-users/zsh-completions"
-apply=["defer"]
-
 # zsh-autocomplete
 [plugins.zsh-autocomplete]
 github = "marlonrichert/zsh-autocomplete"
