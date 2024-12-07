@@ -31,3 +31,6 @@ abbr -g Lg="lazygit"
 
 # lazydocker
 abbr -g Ld="lazydocker"
+
+# lazysql
+abbr -g Ls="lazysql"
