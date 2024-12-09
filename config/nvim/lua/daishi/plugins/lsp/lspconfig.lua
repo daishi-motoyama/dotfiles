@@ -5,6 +5,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
+    "nvimdev/lspsaga.nvim",
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -12,6 +13,12 @@ return {
     local mason_lspconfig = require("mason-lspconfig")
 
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+    require("lspsaga").setup({
+      code_action = {
+        extend_gitsigns = true,
+      },
+    })
 
     local keymap = vim.keymap
 
@@ -42,7 +49,7 @@ return {
 
         -- 該当行でできるコードアクションを出す
         opts.desc = "See available code actions"
-        keymap.set({ "n", "v" }, "<leader>lA", vim.lsp.buf.code_action, opts)
+        keymap.set({ "n", "v" }, "<leader>lA", "<cmd>Lspsaga code_action<CR>", opts)
 
         -- 該当のwordをrenameする
         opts.desc = "Smart rename"
