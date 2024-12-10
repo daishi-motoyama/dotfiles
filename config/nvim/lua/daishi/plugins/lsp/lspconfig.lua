@@ -53,7 +53,7 @@ return {
 
         -- 該当のwordをrenameする
         opts.desc = "Smart rename"
-        keymap.set("n", "<leader>lN", vim.lsp.buf.rename, opts)
+        keymap.set("n", "<leader>lN", "<cmd>Lspsaga rename<CR>", opts)
 
         -- 今開いているファイルのdiagnosticsを表示する
         opts.desc = "Show current file diagnostics"
@@ -61,23 +61,27 @@ return {
 
         -- 該当行のdiagnosticsを表示する
         opts.desc = "Show line diagnostics"
-        keymap.set("n", "<leader>ldl", vim.diagnostic.open_float, opts)
+        keymap.set({ "v", "n" }, "<leader>ldl", "<cmd>Lspsaga show_buf_diagnostics<CR>", opts)
+
+        -- 参照と実装を確認
+        opts.desc = "Show references and implementation."
+        keymap.set("n", "<leader>lF", "<cmd>Lspsaga finder<CR>", opts)
 
         -- 前の診断箇所に移動する
         opts.desc = "Go to previous diagnostic"
-        keymap.set("n", "<leader>lgP", vim.diagnostic.goto_prev, opts)
+        keymap.set("n", "<leader>lgP", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
         -- 次の診断箇所に移動する
         opts.desc = "Go to next diagnostic"
-        keymap.set("n", "<leader>lgN", vim.diagnostic.goto_next, opts)
+        keymap.set("n", "<leader>lgN", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 
         -- カーソル位置のドキュメントを見る
         opts.desc = "Show documentation for what is under cursor"
-        keymap.set("n", "<leader>lK", vim.lsp.buf.hover, opts)
+        keymap.set("n", "<leader>lK", "<cmd>Lspsaga hover_doc<CR>", opts)
 
         -- リスタート
         opts.desc = "Restart LSP"
-        keymap.set("n", "<leader>lS", ":LspRestart<CR>", opts)
+        keymap.set("n", "<leader>lS", "<cmd>LspRestart<CR>", opts)
       end,
     })
 
