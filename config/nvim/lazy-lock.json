@@ -54,7 +54,6 @@
   "octo.nvim": { "branch": "master", "commit": "dfb292d81fe844d85199bb041c55981899c95fde" },
   "pantran.nvim": { "branch": "main", "commit": "9b77ad03cbb4eb980ea5d9abd1ed1d88857b51df" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
-  "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "rest.nvim": { "branch": "main", "commit": "8b489547ddbe674712750b69b34436527d855500" },
   "smear-cursor.nvim": { "branch": "main", "commit": "45894eb7ab2adb1f6a8321655420348d436b2a72" },
