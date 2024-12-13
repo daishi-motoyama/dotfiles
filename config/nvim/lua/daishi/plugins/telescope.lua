@@ -11,7 +11,6 @@ return {
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
-    local fb_actions = require("telescope._extensions.file_browser.actions")
 
     local toggle_modes = function()
       local mode = vim.api.nvim_get_mode().mode
