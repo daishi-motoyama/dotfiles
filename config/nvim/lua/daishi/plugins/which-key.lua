@@ -26,9 +26,9 @@ return {
   },
   config = function()
     local wk = require("which-key")
-    local icon = require("which-key.icons")
 
     wk.add({
+      { "<leader>a", group = "Aerial", icon = "" },
       { "<leader>r", group = "Rest", icon = "󱂛" },
       {
         "<leader>o",
