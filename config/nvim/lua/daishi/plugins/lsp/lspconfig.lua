@@ -29,35 +29,35 @@ return {
 
         -- カーソルにある word の参照箇所を調べる
         opts.desc = "Show LSP references"
-        keymap.set("n", "<leader>lR", "<cmd>Telescope lsp_references<CR>", opts)
+        keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", opts)
 
         -- 宣言箇所に移動する
         opts.desc = "Go to declaration"
-        keymap.set("n", "<leader>lgD", vim.lsp.buf.declaration, opts)
+        keymap.set("n", "<leader>lgd", vim.lsp.buf.declaration, opts)
 
         -- カーソルにある word の定義を調べる
         opts.desc = "Show LSP definitions"
-        keymap.set("n", "<leader>lD", "<cmd>Telescope lsp_definitions<CR>", opts)
+        keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>", opts)
 
         -- カーソルにあるwordの実装を調べる
         opts.desc = "Show LSP implementations"
-        keymap.set("n", "<leader>lI", "<cmd>Telescope lsp_implementations<CR>", opts)
+        keymap.set("n", "<leader>li", "<cmd>Telescope lsp_implementations<CR>", opts)
 
         -- カーソルのにあるwordの型定義を調べる
         opts.desc = "Show LSP type definitions"
-        keymap.set("n", "<leader>lT", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+        keymap.set("n", "<leader>lt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
         -- 該当行でできるコードアクションを出す
         opts.desc = "See available code actions"
-        keymap.set({ "n", "v" }, "<leader>lA", "<cmd>Lspsaga code_action<CR>", opts)
+        keymap.set({ "n", "v" }, "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
 
         -- 該当のwordをrenameする
         opts.desc = "Smart rename"
-        keymap.set("n", "<leader>lN", "<cmd>Lspsaga rename<CR>", opts)
+        keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)
 
         -- 今開いているファイルのdiagnosticsを表示する
         opts.desc = "Show current file diagnostics"
-        keymap.set("n", "<leader>ldC", "<cmd>Telescope diagnostics bufnf=0<CR>", opts)
+        keymap.set("n", "<leader>ldc", "<cmd>Telescope diagnostics bufnf=0<CR>", opts)
 
         -- 該当行のdiagnosticsを表示する
         opts.desc = "Show line diagnostics"
@@ -65,23 +65,19 @@ return {
 
         -- 参照と実装を確認
         opts.desc = "Show references and implementation."
-        keymap.set("n", "<leader>lF", "<cmd>Lspsaga finder<CR>", opts)
+        keymap.set("n", "<leader>lf", "<cmd>Lspsaga finder<CR>", opts)
 
         -- 前の診断箇所に移動する
         opts.desc = "Go to previous diagnostic"
-        keymap.set("n", "<leader>lgP", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+        keymap.set("n", "<leader>lgp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
         -- 次の診断箇所に移動する
         opts.desc = "Go to next diagnostic"
-        keymap.set("n", "<leader>lgN", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+        keymap.set("n", "<leader>lgn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 
         -- カーソル位置のドキュメントを見る
         opts.desc = "Show documentation for what is under cursor"
-        keymap.set("n", "<leader>lK", "<cmd>Lspsaga hover_doc<CR>", opts)
-
-        -- リスタート
-        opts.desc = "Restart LSP"
-        keymap.set("n", "<leader>lS", "<cmd>LspRestart<CR>", opts)
+        keymap.set("n", "<leader>lk", "<cmd>Lspsaga hover_doc<CR>", opts)
       end,
     })
 
