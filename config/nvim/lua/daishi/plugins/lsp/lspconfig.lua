@@ -6,6 +6,7 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
     "nvimdev/lspsaga.nvim",
+    { "yioneko/nvim-vtsls", branch = "main" },
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -78,6 +79,42 @@ return {
         -- カーソル位置のドキュメントを見る
         opts.desc = "Show documentation for what is under cursor"
         keymap.set("n", "<leader>lk", "<cmd>Lspsaga hover_doc<CR>", opts)
+
+        vim.lsp.commands["editor.action.showReferences"] = function(command, ctx)
+          local locations = command.arguments[3]
+          local client = vim.lsp.get_client_by_id(ctx.client_id)
+          if locations and #locations > 0 then
+            local items = vim.lsp.util.locations_to_items(locations, client.offset_encoding)
+            vim.fn.setloclist(0, {}, " ", { title = "References", items = items, context = ctx })
+            vim.api.nvim_command("lopen")
+          end
+        end
+
+        opts.desc = "Open up a quickfix window for references shown by the lens"
+        keymap.set("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "typescript", "typescriptreact" },
+      callback = function()
+        vim.schedule(function()
+          -- 今開いているファイルに不足しているimportを追加する
+          keymap.set(
+            "n",
+            "<leader>lvi",
+            "<cmd>VtsExec add_missing_imports<CR>",
+            { buffer = true, desc = "Vtsls add missing imports" }
+          )
+
+          -- 実行できるコードアクションを表示する
+          keymap.set(
+            "n",
+            "<leader>lva",
+            "<cmd>VtsExec source_actions<CR>",
+            { buffer = true, desc = "Vtsls source actions" }
+          )
+        end)
       end,
     })
 
@@ -176,6 +213,23 @@ return {
         lspconfig["bashls"].setup({
           capabilities = capabilities,
           filetypes = { "sh", "zsh" },
+        })
+      end,
+      ["vtsls"] = function()
+        lspconfig["vtsls"].setup({
+          capabilities = capabilities,
+          settings = {
+            typescript = {
+              inlayHints = {
+                parameterNames = { enabled = "literals" },
+                parameterTypes = { enabled = true },
+                variableTypes = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                enumMemberValues = { enabled = true },
+              },
+            },
+          },
         })
       end,
     })

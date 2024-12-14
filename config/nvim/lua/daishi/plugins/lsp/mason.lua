@@ -21,7 +21,6 @@ return {
 
     mason_lspconfig.setup({
       ensure_installed = {
-        "ts_ls",
         "html",
         "cssls",
         "tailwindcss",
@@ -35,6 +34,7 @@ return {
         "marksman",
         "yamlls",
         "bashls",
+        "vtsls",
       },
     })
 
