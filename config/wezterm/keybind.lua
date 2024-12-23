@@ -73,8 +73,13 @@ return {
     -- 画面フルスクリーン切り替え
     { key = "Enter", mods = "SUPER", action = act.ToggleFullScreen },
 
+    -- 検索モード
+    {
+      key = "/",
+      mods = "LEADER",
+      action = act.Search({ CaseSensitiveString = "" }),
+    },
     -- コピーモード
-    -- { key = 'X', mods = 'LEADER', action = act.ActivateKeyTable{ name = 'copy_mode', one_shot =false }, },
     { key = "c", mods = "LEADER", action = act.ActivateCopyMode },
     -- コピー
     { key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
@@ -113,8 +118,6 @@ return {
     { key = "8", mods = "SUPER", action = act.ActivateTab(7) },
     { key = "9", mods = "SUPER", action = act.ActivateTab(-1) },
 
-    -- コマンドパレット
-    -- { key = "p", mods = "SHIFT|CTRL", action = act.ActivateCommandPalette },
     -- 設定再読み込み
     { key = "r", mods = "SUPER", action = act.ReloadConfiguration },
 
@@ -202,8 +205,17 @@ return {
         action = act.Multiple({ { CopyTo = "ClipboardAndPrimarySelection" }, { CopyMode = "Close" } }),
       },
       { key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
-      -- { key = "c", mods = "CTRL", action = act.CopyMode("Close") },
-      -- { key = "q", mods = "NONE", action = act.CopyMode("Close") },
+    },
+    search_mode = {
+      { key = "Enter", mods = "NONE", action = act.CopyMode("PriorMatch") },
+      {
+        key = "Escape",
+        mods = "NONE",
+        action = act.CopyMode("Close"),
+      },
+      { key = "n", mods = "SUPER", action = act.CopyMode("NextMatch") },
+      { key = "N", mods = "SUPER", action = act.CopyMode("PriorMatch") },
+      { key = "c", mods = "LEADER", action = act.CopyMode("ClearPattern") },
     },
   },
 }
