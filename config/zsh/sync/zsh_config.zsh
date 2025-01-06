@@ -33,5 +33,5 @@ precmd() {
 
 precmd
 
-# rubyのパスを追加
-PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+# Flutterのパス
+PATH="$PATH:$HOME/fvm/default/bin"
