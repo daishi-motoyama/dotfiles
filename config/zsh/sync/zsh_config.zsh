@@ -32,3 +32,6 @@ precmd() {
 }
 
 precmd
+
+# rubyのパスを追加
+PATH="/opt/homebrew/opt/ruby/bin:$PATH"
