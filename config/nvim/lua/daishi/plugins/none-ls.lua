@@ -21,7 +21,8 @@ return {
     null_ls.setup({
       root_dir = null_ls_utils.root_pattern(".null-ls-root", ".neoconf.jsong", ".git", "package.json"),
       sources = {
-        builtins.diagnostics.markdownlint_cli2,
+        builtins.diagnostics.markdownlint,
+        builtins.formatting.markdownlint,
         builtins.formatting.prettier.with({
           prefer_local = "node_modules/.bin",
         }),
@@ -32,6 +33,9 @@ return {
           end,
         }),
         builtins.formatting.stylua,
+        builtins.code_actions.textlint,
+        builtins.diagnostics.textlint,
+        builtins.formatting.textlint,
         builtins.completion.spell,
         require("none-ls.diagnostics.eslint_d").with({
           prefer_local = "node_modules/.bin",

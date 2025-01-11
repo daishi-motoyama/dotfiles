@@ -28,6 +28,7 @@ return {
     mason_lspconfig.setup({
       ensure_installed = {
         "html",
+        "markdownlint",
         "cssls",
         "tailwindcss",
         "svelte",
@@ -41,6 +42,7 @@ return {
         "yamlls",
         "bashls",
         "vtsls",
+        "textlint",
       },
     })
 
@@ -53,11 +55,12 @@ return {
         "pylint",
         "eslint_d",
         "biome",
-        "markdownlint-cli2",
+        "markdownlint",
         "markdown-toc",
         "shfmt",
         "shellcheck",
         "jq",
+        "textlint",
       },
     })
   end,
