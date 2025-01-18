@@ -24,6 +24,7 @@ opt.splitright = true
 opt.splitbelow = true
 opt.helplang = "ja"
 opt.termguicolors = true
+opt.laststatus = 3
 
 -- LSPの警告フォーマット
 -- ref: https://dev.classmethod.jp/articles/eetann-change-neovim-lsp-diagnostics-format/
