@@ -26,3 +26,6 @@ $~*
 
 # none-ls
 **/.null-ls*
+
+# avante
+*.*.avanterules
