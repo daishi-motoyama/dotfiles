@@ -28,7 +28,8 @@ return {
     local wk = require("which-key")
 
     wk.add({
-      { "<leader>a", group = "Aerial", icon = "" },
+      { "<leader>a", group = "Avante", icon = "󰁤" },
+      { "<leader>A", group = "Aerial", icon = "" },
       { "<leader>r", group = "Rest", icon = "󱂛" },
       {
         "<leader>o",
