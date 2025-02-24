@@ -71,5 +71,19 @@ return {
       },
       ft = { "markdown", "Avante" },
     },
+    config = function()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "ToggleMyPrompt",
+        callback = function()
+          require("avante.config").override({
+            system_prompt = "回答はすべて日本語でお願いいたします。",
+          })
+        end,
+      })
+
+      vim.keymap.set("n", "<leader>am", function()
+        vim.api.nvim_exec_autocmds("User", { pattern = "ToggleMyPrompt" })
+      end, { desc = "avante: toggle my prompt" })
+    end,
   },
 }
